@@ -1,9 +1,10 @@
 services:
   nicehash:
-    image: dockerhubnh/nicehash:latest
-    environment:
-      MINING_ADDRESS: "YOUR_MINING_ADDRESS"
-      MINING_WORKER_NAME: "rig-WORKER_NAME"
+    build: .
+    image: nicehash
+    container_name: nicehash
+    env_file:
+      - nicehash.env
     deploy:
       resources:
         reservations:
